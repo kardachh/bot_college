@@ -17,6 +17,5 @@ def check_not_none(get_cell):
     else:
         return False
 def output_lesson(i):
-    if check_not_none(get_cell(i)) == True:
         all = '\t'+get_time(i)+'\n'+get_cell(i)+'\n\n'
         return all
