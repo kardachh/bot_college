@@ -1,8 +1,7 @@
 import openpyxl
-from helper import output_lesson, check_not_none,get_cell
+from helper import output_day
 i = 24
 while i<99:
-    if check_not_none(get_cell(i)) == True:
-        print(output_lesson(i))
+    output_day(i)
     i=i+1
     
