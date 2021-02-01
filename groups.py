@@ -11,8 +11,6 @@ class Group:
         self.name = name
         self.cabinet = cabinet
     
-    
-
 isp301201 = Group('AS','AU','AT','AS','AV')
 isp202 = Group('AA','AC','AB','AA','AD')
 
