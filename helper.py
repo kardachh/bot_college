@@ -41,8 +41,10 @@ def get_day_of_week(i):
     return day
 
 def get_time(i):
-    st='AX'+str(i)
+    st=mass_of_group[number_of_group].time+str(i)
     time = str(sheet[st].value)
+    if time == 'None':
+        return st
     time = time.replace(' ','')
     return time
 
@@ -85,7 +87,7 @@ def output_lesson(i):
     if get_name(i) == 'день самостоятельной подготовки':
         print('день самостоятельной подготовки')
     elif check_not_none(get_name(i)) == True:
-        all = get_time(i)+':\t'+get_prepod(i)+'\t'+get_cabinet(i)+'\t'+get_type(i)+'\t'+get_name(i)
+        all = get_time(i)+':\t'+get_prepod(i)+'\t\t'+get_cabinet(i)+'\t'+get_type(i)+'\t'+get_name(i)
         print(all)
     
 def output_week(i):
