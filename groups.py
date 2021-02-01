@@ -15,6 +15,7 @@ class Group:
 
 isp301201 = Group('AS','AU','AT','AS','AV')
 isp202 = Group('AA','AC','AB','AA','AD')
+
 mass_of_group = [isp301201,isp202]
 
 

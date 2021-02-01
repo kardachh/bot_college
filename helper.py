@@ -4,7 +4,29 @@ from groups import mass_of_group
 wb = openpyxl.load_workbook("rasp.xlsx")
 # получаем активный лист
 sheet = wb.active
-set_group = mass_of_group[0]
+
+def output_groups():
+    numberi = 0
+    while numberi<len(mass_of_group):
+        print(str(numberi+1) + '.\t'+name_of_group_())
+        numberi=numberi+1
+
+def choose_group():
+    numberj=0
+    while numberj==0:
+        numberj = int(input('Выберите свою группу: '))
+        if numberj > 0 and numberj <= len(mass_of_group):
+            return numberj-1
+        else:
+            numberj=0
+
+number_of_group = choose_group()
+
+def name_of_group_():
+    sn=mass_of_group[i].name_of_group+str(22)
+    name_ = str(sheet[sn].value)
+    name_ = name_.replace('\n','\n\t')
+    return name_
 
 def get_day_of_week(i):
     sd='AW'+str(i)
@@ -18,13 +40,13 @@ def get_time(i):
     return time
 
 def get_name(i):
-     s=set_group.name+str(i)
+     s=mass_of_group[number_of_group].name+str(i)
      name = str(sheet[s].value)
      name = name.replace('\n',' ')
      return name
 
 def get_cabinet(i):
-    sc=set_group.cabinet+str(i)
+    sc=mass_of_group[number_of_group].cabinet+str(i)
     cabinet = str(sheet[sc].value)
     cabinet = cabinet.replace('\n','\n\t\t\t\t')
     if cabinet == 'None':
@@ -32,7 +54,7 @@ def get_cabinet(i):
     else: return cabinet
 
 def get_prepod(i):
-    sp=set_group.prepod+str(i)
+    sp=mass_of_group[number_of_group].prepod+str(i)
     prepod = str(sheet[sp].value)
     prepod = prepod.replace('\n','\n\t\t')
     if prepod == 'None':
@@ -91,23 +113,9 @@ def output_week(i):
             j=j+1
 
 def output_week_all():
-    print('\t\t\t'+name_of_group_())
+    name = name_of_group_().replace('\n','\n\t\t')
+    print('\t\t\t'+name)
     i = 24
     while i<99:
         output_week(i)
         i=i+1
-
-def name_of_group_():
-    sn=set_group.name_of_group+str(22)
-    name_ = str(sheet[sn].value)
-    name_ = name_.replace('\n','\n\t')
-    return name_
-
-def choose_group():
-    i = 1
-    print('Выберите свою группу')
-    while i<=len(mass_of_group):
-        print(str(i)+'.\t'+name_of_group_())
-        i=i+1
-    i = input()
-    set_group = mass_of_group[int(i)-1]
